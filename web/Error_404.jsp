@@ -4,7 +4,7 @@
     Author     : 2344109
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page isErrorPage="true" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>

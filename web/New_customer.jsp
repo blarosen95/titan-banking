@@ -25,28 +25,28 @@
     <p>${message}</p>
     <form method="post" action="register">
         <label for="FirstName">First name:</label>
-        <input type="text" name="FirstName" id="FirstName">
+        <input type="text" name="FirstName" value="${firstName}">
 
         <label for="LastName">Last name:</label>
-        <input type="text" name="LastName" id="LastName">
+        <input type="text" name="LastName" value="${lastName}">
 
         <label for="Phone">Phone:</label>
-        <input type="tel" name="Phone" id="Phone">
+        <input type="tel" name="Phone" value="${phone}">
 
         <label for="Address">Address:</label>
-        <input type="text" name="Address" id="Address">
+        <input type="text" name="Address" value="${address}">
 
         <label for="City">City:</label>
-        <input type="text" name="City" id="City">
+        <input type="text" name="City" value="${city}">
 
         <label for="State">State:</label>
-        <input type="text" name="State" id="State">
+        <input type="text" name="State" value="${state}">
 
         <label for="Zipcode">Zip code:</label>
-        <input type="text" name="Zipcode" id="Zipcode">
+        <input type="text" name="Zipcode" value="${zipCode}">
 
         <label for="Email">Email:</label>
-        <input type="email" name="Email" id="Email">
+        <input type="email" name="Email" value="${email}">
 
         <input type="submit" id="Submit" value="Submit" style="color: #f8f5e4; background-color: #699331">
     </form>
