@@ -25,28 +25,28 @@
     <p>${message}</p>
     <form method="post" action="register">
         <label for="FirstName">First name:</label>
-        <input type="text" name="FirstName" value="${firstName}">
+        <input type="text" name="FirstName" value="${customer.firstName}">
 
         <label for="LastName">Last name:</label>
-        <input type="text" name="LastName" value="${lastName}">
+        <input type="text" name="LastName" value="${customer.lastName}">
 
         <label for="Phone">Phone:</label>
-        <input type="tel" name="Phone" value="${phone}">
+        <input type="tel" name="Phone" value="${customer.phone}">
 
         <label for="Address">Address:</label>
-        <input type="text" name="Address" value="${address}">
+        <input type="text" name="Address" value="${customer.address}">
 
         <label for="City">City:</label>
-        <input type="text" name="City" value="${city}">
+        <input type="text" name="City" value="${customer.city}">
 
         <label for="State">State:</label>
-        <input type="text" name="State" value="${state}">
+        <input type="text" name="State" value="${customer.state}">
 
         <label for="Zipcode">Zip code:</label>
-        <input type="text" name="Zipcode" value="${zipCode}">
+        <input type="text" name="Zipcode" value="${customer.zipCode}">
 
         <label for="Email">Email:</label>
-        <input type="email" name="Email" value="${email}">
+        <input type="email" name="Email" value="${customer.email}">
 
         <input type="submit" id="Submit" value="Submit" style="color: #f8f5e4; background-color: #699331">
     </form>

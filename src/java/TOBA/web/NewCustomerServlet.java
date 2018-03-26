@@ -37,11 +37,12 @@ public class NewCustomerServlet extends HttpServlet {
          String zipcode = req.getParameter("Zipcode");
          String email = req.getParameter("Email");
          
-         // Create a list to store the customer's information.
-            // If customer information becomes more important in future assignments,
-            // create a Customer object for simpler database management.
+         // Create a List for customer information
          List<String> customer = new ArrayList<>();
          customer.addAll(Arrays.asList(firstName, lastName, phone, address, city, state, zipcode, email));
+         
+         // Create a Customer object to (temporarily, for now) store the customer's information.
+         Customer cust = new Customer(firstName, lastName, phone, address, city, state, zipcode, email);
          
          boolean missingInfo = false;
          String message;
@@ -64,6 +65,7 @@ public class NewCustomerServlet extends HttpServlet {
          }
          
          req.setAttribute("message", message);
+         req.setAttribute("customer", cust);
          out.println(url);
          getServletContext().getRequestDispatcher(url)
                  .forward(req, res);
