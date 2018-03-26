@@ -4,7 +4,7 @@
     Author     : 2344109
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page isErrorPage="true" import="java.io" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,5 +15,9 @@
         <h1>Java Error</h1>
         <p>Sorry, Java has thrown an exception.</p>
         <p>To continue, click the Back button.</p>
+        
+        <h2>Details</h2>
+        <p>Type: <%=exception.getClass().getName() %></p>
+        <p>Message: <%=exception.getMessage() %></p>
     </body>
 </html>
