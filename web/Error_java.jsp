@@ -4,7 +4,7 @@
     Author     : 2344109
 --%>
 
-<%@page isErrorPage="true" import="java.io" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page isErrorPage="true" import="java.io.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
