@@ -4,6 +4,7 @@
     Author     : 2344109
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,9 @@
         <%
             GregorianCalendar currentDate = new GregorianCalendar();
             int currentYear = currentDate.get(Calendar.YEAR);
+            int currentDay = currentDate.get(Calendar.DAY_OF_MONTH);
+            String currentMonth = new SimpleDateFormat("MMM").format(currentDate.getTime());
         %>
-        <p>&copy; Copyright <%= currentYear %> Blake Rosenberg</p>
+        <p>&copy; Copyright <%= currentMonth %> <%= currentDay %>, <%= currentYear %> Blake Rosenberg</p>
     </body>
 </html>
