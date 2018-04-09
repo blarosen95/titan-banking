@@ -16,6 +16,12 @@
         <servlet-name>NewCustomerServlet</servlet-name>
         <servlet-class>TOBA.web.NewCustomerServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <servlet-class>TOBA.web.ResetPasswordServlet</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -23,6 +29,10 @@
     <servlet-mapping>
         <servlet-name>NewCustomerServlet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <url-pattern>/reset</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

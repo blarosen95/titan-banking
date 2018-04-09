@@ -4,10 +4,11 @@
     <link rel="stylesheet" type="text/css" href="css/TOBA.css"/>
     <meta charset="UTF-8">
     <title>TOBA Login</title>
+    <script src="includes/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <div id="wrapper">
-        <header></header>
+        <div id="header" class="center"></div>
 
         <nav>
             <a href="index.html">Home</a>
@@ -25,15 +26,20 @@
                 <input type="text" name="Username" id="Username">
 
                 <label for="Password">Password:</label>
-                <input type="text" name="Password" id="Password">
+                <input type="password" name="Password" id="Password">
 
                 <input type="submit" id="Login" value="Login" style="background-color: #699331; color: #f8f5e4">
             </form>
+            
+            <p><a href="password_reset.jsp">Forgot password?</a></p>
         </main>
 
-        <footer>
-            Copyright &copy; 2018 <span class="toba">Blake Rosenberg</span>
-        </footer>
+        <footer><div id="footer"></div></footer>
     </div>
+    
+<script>
+    $("#header").load("includes/header.html");
+    $("#footer").load("includes/footer.jsp");
+</script>
 </body>
 </html>

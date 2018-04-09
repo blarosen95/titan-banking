@@ -4,14 +4,22 @@
     <link rel="stylesheet" type="text/css" href="css/TOBA.css">
     <meta charset="UTF-8">
     <title>Login Failure</title>
+    <script src="includes/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <div id="wrapper">
-    <header></header>
+        <div id="header" class="center"></div>
     
     <main>
-        <p>Incorrect login information</p>
+        <p style="text-align: justify; color: #ff0000; font-weight: bolder">Incorrect login information</p>
     </main>
+        
+        <footer><div id="footer"></footer>
     </div>
+    
+<script>
+    $("#header").load("includes/header.html");
+    $("#footer").load("includes/footer.jsp");
+</script>
 </body>
 </html>

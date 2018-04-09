@@ -4,14 +4,28 @@
     <link rel="stylesheet" type="text/css" href="css/TOBA.css">
     <meta charset="UTF-8">
     <title>Activity</title>
+    <script src="includes/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <div id="wrapper">
-    <header></header>
-    <h1>Account activity</h1>
+        <div id="header" class="center"></div>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Login.html">Login</a>
+        </nav>
     
-    <main>
-    </main>
+        <h1>Account activity</h1>
+    
+        <main>
+        </main>
+        
     </div>
+    <footer><div id="footer"></div></footer>
+
+    <script>
+        $("#header").load("includes/header.html");
+        $("#footer").load("includes/footer.jsp");
+    </script>
 </body>
 </html>

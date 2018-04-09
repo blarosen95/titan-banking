@@ -14,46 +14,44 @@
 </head>
 <body>
 <div id="wrapper">
-    <header></header>
-    <h1>New Customer Registration</h1>
-
+    <div class="center"><%@include file="includes/header.html" %></div>
     <nav>
         <a href="index.html">Home</a>
         <a href="Login.html">Login</a>
     </nav>
+    
+    <h1>New Customer Registration</h1>
 
     <p>${message}</p>
     <form method="post" action="register">
         <label for="FirstName">First name:</label>
-        <input type="text" name="FirstName" value="${customer.firstName}">
+        <input type="text" name="FirstName" value="${user.firstName}">
 
         <label for="LastName">Last name:</label>
-        <input type="text" name="LastName" value="${customer.lastName}">
+        <input type="text" name="LastName" value="${user.lastName}">
 
         <label for="Phone">Phone:</label>
-        <input type="tel" name="Phone" value="${customer.phone}">
+        <input type="tel" name="Phone" value="${user.phone}">
 
         <label for="Address">Address:</label>
-        <input type="text" name="Address" value="${customer.address}">
+        <input type="text" name="Address" value="${user.address}">
 
         <label for="City">City:</label>
-        <input type="text" name="City" value="${customer.city}">
+        <input type="text" name="City" value="${user.city}">
 
         <label for="State">State:</label>
-        <input type="text" name="State" value="${customer.state}">
+        <input type="text" name="State" value="${user.state}">
 
         <label for="Zipcode">Zip code:</label>
-        <input type="text" name="Zipcode" value="${customer.zipCode}">
+        <input type="text" name="Zipcode" value="${user.zipCode}">
 
         <label for="Email">Email:</label>
-        <input type="email" name="Email" value="${customer.email}">
+        <input type="email" name="Email" value="${user.email}">
 
         <input type="submit" id="Submit" value="Submit" style="color: #f8f5e4; background-color: #699331">
     </form>
 
-    <footer>
-        Copyright &copy; 2018 <span class="toba">Blake Rosenberg</span>
-    </footer>
+    <footer><%@include file="includes/footer.jsp" %></footer>
 </div>
 </body>
 </html>

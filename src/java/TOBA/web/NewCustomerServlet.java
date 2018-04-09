@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,8 +42,11 @@ public class NewCustomerServlet extends HttpServlet {
          List<String> customer = new ArrayList<>();
          customer.addAll(Arrays.asList(firstName, lastName, phone, address, city, state, zipcode, email));
          
-         // Create a Customer object to (temporarily, for now) store the customer's information.
-         Customer cust = new Customer(firstName, lastName, phone, address, city, state, zipcode, email);
+         // Create an instance of the User bean
+         User user = new User(firstName, lastName, phone, address, city, state, zipcode, email, lastName + zipcode, "welcome1");
+         
+         // Create an HTTP Session [CHANGE ME]
+         HttpSession session = req.getSession();
          
          boolean missingInfo = false;
          String message;
@@ -55,9 +59,9 @@ public class NewCustomerServlet extends HttpServlet {
             }
          }
          if (missingInfo == false) {
-             //res.sendRedirect("Success.html");
              message = "";
-             url = "/Success.html";
+             //url = "/Success.html";
+             url = "/Success.jsp";
          }
          else {
              message = "Please fill out all fields.";
@@ -65,7 +69,9 @@ public class NewCustomerServlet extends HttpServlet {
          }
          
          req.setAttribute("message", message);
-         req.setAttribute("customer", cust);
+         // Add the object to the session scope
+         session.setAttribute("user", user);
+         //req.setAttribute("customer", user);
          out.println(url);
          getServletContext().getRequestDispatcher(url)
                  .forward(req, res);

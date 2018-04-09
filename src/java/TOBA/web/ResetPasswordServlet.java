@@ -5,12 +5,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 /**
  *
  * @author 2344109
  */
-public class LoginServlet extends HttpServlet {
+public class ResetPasswordServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
@@ -18,18 +20,45 @@ public class LoginServlet extends HttpServlet {
         
         String username = req.getParameter("Username");
         String password = req.getParameter("Password");
+        String confirm = req.getParameter("Confirm");
         
-        if (username.equals("jsmith@toba.com") && password.equals("letmein")) {
-          // Forward request to Account_activity.html
-          getServletContext().getRequestDispatcher("/Account_activity.jsp")
-                  .forward(req, res);
+        HttpSession session = req.getSession();
+
+        PrintWriter out = res.getWriter();
+        
+        User user = (User) session.getAttribute("user");
+        
+        String url, message, image;
+        
+        if (username.equals(user.getUsername())) {
+            if (password.equals(confirm)) {
+                url = "/Account_activity.jsp";
+                message = "";
+                image = "";
+                user.setPassword(password);
+            }
+            else {
+                url = "/password_reset.jsp";
+                message = "Passwords must match.";
+                image = "";
+            }
         }
-        
         else {
-            // Forward request to Login_failure.html
-            getServletContext().getRequestDispatcher("/Login_failure.html")
-                    .forward(req, res);
+            // Form tampering detection trigger (The forwarded page will look more
+                // professional after the security stage of development)
+            ///out.println("Please do not attempt to tamper with the username field.");
+            ///out.close();
+            url = "/NiceTry.jsp";
+            message = "Please do not tamper with the username field.";
+            image = "images/niceTry.png";
         }
+        
+        req.setAttribute("message", message);
+        req.setAttribute("image", image);
+        // Set the user object to the session scope
+        session.setAttribute("user", user);
+        getServletContext().getRequestDispatcher(url)
+                .forward(req, res);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,5 +1,11 @@
 * { box-sizing: border-box; }
 
+.center {
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+}
+
 body {
     background-color: #f6f4ee;
     color: #231f20;
@@ -8,7 +14,7 @@ body {
 
 header {
     height: 150px;
-    background: #f6f4ee url("../images/logo2.png") no-repeat center;
+    background: #f6f4ee no-repeat center;
 }
 
 h1 {
@@ -34,10 +40,11 @@ nav a{
 
 footer {
     background-color: #274917;
-    font-size: .60em;
-    font-style: italic;
+    font-size: 0.75em;
+    font-weight: 700;
     text-align: center;
     padding: 1em;
+    color: #a4b39e;
 }
 
 .toba {
@@ -116,13 +123,13 @@ table {
 }
 
 td, th {
-    border: 1px solid #000000;
+    border: 1px solid #699331;
     padding: 5px;
 }
 
 tr:nth-of-type(odd) {
-    background-color: #0ABAB5;
+    background-color: #437c27;
 }
 tr:nth-of-type(even) {
-    background-color: #ffffff;
+    background-color: #f6f4ee;
 }
