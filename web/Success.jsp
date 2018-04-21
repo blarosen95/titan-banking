@@ -36,16 +36,16 @@
                             <th>Password</th>
                         </tr>
                         <tr>
-                            <td>${sessionScope.user.firstName}</td>
-                            <td>${sessionScope.user.lastName}</td>
-                            <td>${sessionScope.user.phone}</td>
-                            <td>${sessionScope.user.address}</td>
-                            <td>${sessionScope.user.city}</td>
-                            <td>${sessionScope.user.state}</td>
-                            <td>${sessionScope.user.zipCode}</td>
-                            <td>${sessionScope.user.email}</td>
-                            <td>${sessionScope.user.username}</td>
-                            <td>${sessionScope.user.password}</td>
+                            <td>${user.firstName}</td>
+                            <td>${user.lastName}</td>
+                            <td>${user.phone}</td>
+                            <td>${user.address}</td>
+                            <td>${user.city}</td>
+                            <td>${user.state}</td>
+                            <td>${user.zipCode}</td>
+                            <td>${user.email}</td>
+                            <td>${user.username}</td>
+                            <td>${user.password}</td>
                         </tr>
                     </tbody>
                 </table>

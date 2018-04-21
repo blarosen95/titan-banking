@@ -24,7 +24,7 @@
             <h1>Account Activity</h1>
             
             <c:if test="${sessionScope.user != null}">
-                <p style="font-size: larger; text-align: center">Welcome, ${sessionScope.user.firstName} ${sessionScope.user.lastName}!</p>
+                <p style="font-size: larger; text-align: center">Welcome, ${user.firstName} ${user.lastName}!</p>
             </c:if>
             <c:if test="${sessionScope.user == null}">
                 <p style="color: #ff0000; font-weight: bold">Not Logged In</p>

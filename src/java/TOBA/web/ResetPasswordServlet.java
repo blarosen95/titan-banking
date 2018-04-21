@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
 
 /**
  *
@@ -23,8 +22,6 @@ public class ResetPasswordServlet extends HttpServlet {
         String confirm = req.getParameter("Confirm");
         
         HttpSession session = req.getSession();
-
-        PrintWriter out = res.getWriter();
         
         User user = (User) session.getAttribute("user");
         
@@ -46,8 +43,6 @@ public class ResetPasswordServlet extends HttpServlet {
         else {
             // Form tampering detection trigger (The forwarded page will look more
                 // professional after the security stage of development)
-            ///out.println("Please do not attempt to tamper with the username field.");
-            ///out.close();
             url = "/NiceTry.jsp";
             message = "Please do not tamper with the username field.";
             image = "images/niceTry.png";

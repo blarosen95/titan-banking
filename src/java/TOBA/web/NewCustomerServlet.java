@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TOBA.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +21,6 @@ public class NewCustomerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException, IllegalAccessException {
          res.setContentType("text/html;charset=UTF-8");
-         PrintWriter out = res.getWriter();
         
          String firstName = req.getParameter("FirstName");
          String lastName = req.getParameter("LastName");
@@ -41,9 +34,6 @@ public class NewCustomerServlet extends HttpServlet {
          // Create a List for customer information
          List<String> customer = new ArrayList<>();
          customer.addAll(Arrays.asList(firstName, lastName, phone, address, city, state, zipcode, email));
-         
-         // Create an instance of the User bean
-         User user = new User(firstName, lastName, phone, address, city, state, zipcode, email, lastName + zipcode, "welcome1");
          
          // Create an HTTP Session [CHANGE ME]
          HttpSession session = req.getSession();
@@ -60,19 +50,26 @@ public class NewCustomerServlet extends HttpServlet {
          }
          if (missingInfo == false) {
              message = "";
-             //url = "/Success.html";
              url = "/Success.jsp";
+             // Create an instance of the User bean
+             User user = new User(firstName, lastName, phone, address, city, state, zipcode, email, lastName + zipcode, "welcome1");
+             // Add the object to the session scope
+             session.setAttribute("user", user);
          }
          else {
              message = "Please fill out all fields.";
              url = "/New_customer.jsp";
+             req.setAttribute("firstName", firstName);
+             req.setAttribute("lastName", lastName);
+             req.setAttribute("phone", phone);
+             req.setAttribute("address", address);
+             req.setAttribute("city", city);
+             req.setAttribute("state", state);
+             req.setAttribute("zipcode", zipcode);
+             req.setAttribute("email", email);
          }
          
          req.setAttribute("message", message);
-         // Add the object to the session scope
-         session.setAttribute("user", user);
-         //req.setAttribute("customer", user);
-         out.println(url);
          getServletContext().getRequestDispatcher(url)
                  .forward(req, res);
     }

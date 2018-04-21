@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -15,11 +16,13 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         res.setContentType("text/html;charset=UTF-8");
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("user");
         
         String username = req.getParameter("Username");
         String password = req.getParameter("Password");
         
-        if (username.equals("jsmith@toba.com") && password.equals("letmein")) {
+        if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
           // Forward request to Account_activity.html
           getServletContext().getRequestDispatcher("/Account_activity.jsp")
                   .forward(req, res);
