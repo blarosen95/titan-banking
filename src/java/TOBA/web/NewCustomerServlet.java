@@ -1,5 +1,6 @@
 package TOBA.web;
 
+import TOBA.data.UserDB;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,6 +56,7 @@ public class NewCustomerServlet extends HttpServlet {
              User user = new User(firstName, lastName, phone, address, city, state, zipcode, email, lastName + zipcode, "welcome1");
              // Add the object to the session scope
              session.setAttribute("user", user);
+             UserDB.insert(user);
          }
          else {
              message = "Please fill out all fields.";

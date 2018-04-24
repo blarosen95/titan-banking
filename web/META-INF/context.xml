@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/TOBA"/>
+<Context path="/TOBA">
+    
+    <Resource name="jdbc/toba" auth="Container"
+    driverClassName="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/tobadb"
+    username="tobaJava" password="ChangeMe?"
+    maxActive="100" maxIdle="30" maxWait="10000"
+    logAbandoned="true" removeAbandoned="true"
+    removeAbandonedTimeout="60" type="javax.sql.DataSource" />
+    
+</Context>
